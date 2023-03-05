@@ -1,0 +1,14 @@
+@import "../../vars.scss";
+.SecMainHome {
+  padding: 10px 5%;
+  .textHeaderMain {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    .linkProductsHeader {
+      color: $MainColor;
+      font-weight: 600;
+    }
+  }
+}
