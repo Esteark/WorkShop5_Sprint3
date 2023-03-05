@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500&family=Barlow:wght@200&family=Bellefair&family=Epilogue:wght@500;700&family=Oswald:wght@700&family=Roboto:wght@300;400;500&display=swap");
+@import "../../vars.scss";
+
+.secForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+  color: $white;
+
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.473), rgba(0, 0, 0, 0.712)),
+    url(https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.logoANDicon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  .icon {
+    width: 100px;
+  }
+  .logo {
+    font-family: "Oswald", sans-serif;
+  }
+}
+
+.form__text {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .form__inputContainer {
+    gap: 8px;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-bottom: 1px solid $white;
+  }
+  .form__input {
+    border: none;
+    background: transparent;
+  }
+  .form__input::placeholder {
+    color: $white;
+  }
+
+  .form__button {
+    color: $black;
+    border: none;
+    width: 100%;
+    padding: 20px 0;
+    border-radius: 5px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+  .form__button:hover {
+    background-color: $MainColor;
+    color: $white;
+    transition: 0.5s;
+  }
+
+  .form__password {
+    align-self: center;
+    font-size: 17px;
+    border: 2px solid transparent;
+    transition: 0.5s;
+    color: $white;
+  }
+  .form__password:hover {
+    border-bottom: 2px solid $MainColor;
+    transition: 0.5s;
+  }
+}
+
+.form__register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .registerP {
+    font-size: 14px;
+  }
+
+  .registerA {
+    font-size: 20px;
+    font-weight: 700;
+    border: 2px solid transparent;
+    transition: 0.5s;
+    color: $white;
+  }
+  .registerA:hover {
+    border-bottom: 2px solid $MainColor;
+    transition: 0.5s;
+  }
+}
