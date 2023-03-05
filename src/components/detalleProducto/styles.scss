@@ -1,0 +1,117 @@
+@import '../../vars.scss';
+.secProduct{
+    background-color: rgb(29, 29, 29);
+    border-radius: 0 0 20px 20px;
+    height: 88vh;
+    z-index: 4;
+}
+.carousel{
+    border-radius: 0px 0px 12px 12px;
+}
+.back__home{
+    position: absolute;
+    cursor: pointer;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    .icon_back{
+        font-size: 50px;
+        color: white;
+    }
+}
+.figure__carousel{
+    height: 270px;
+    background: linear-gradient(180deg, rgba(32,32,32,1) 0%, rgba(32,32,32,1) 35%, rgba(0,0,0,0) 100%); 
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.product{
+    color: white;
+    padding: 25px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    &__items{
+        display: flex;
+        gap: 20px;
+    }
+    &__price{
+        background-color: $MainColor;
+        font-size: 15px;
+        padding: 8px;
+        border-radius: 20px;
+    }
+    &__review{
+        background-color: $orange;
+        padding: 8px;
+        font-size: 15px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+    }
+}
+.product__footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+    z-index: 1;
+    margin-top: -20px;
+    padding-top: 45px;
+    padding-left: 20px;
+    padding-right: 5px;
+    height: 100px;
+    background-color: $MainColor;
+    color: white;
+    .counter{
+        display: flex;
+        gap: 35px;
+        align-items: center;
+        .count{
+            font-size: 30px;
+            caret-color: transparent;
+            user-select: none;
+        }
+        .plus,.minus{
+            font-size: 35px;
+            font-weight: 400;
+            cursor: pointer;
+            caret-color: transparent;
+            user-select: none;
+        }
+    }
+    .iconCar{
+        display: flex;
+        align-items: center;
+        padding: 8px 10px;
+        border: 2px solid $white;
+        border-radius: 8px;
+        .basket{
+            font-size: 30px;
+        }
+    }
+    .paybtn{
+        padding: 15px;
+        border-radius: 10px;
+        border-style: none;
+        border: 2px solid white;
+        width: 100px;
+        color: $white;
+        cursor: pointer;
+        background-color: transparent;
+        &:hover{
+            color: $MainColor;
+            background-color: white;
+        }
+    }
+}
+.container{
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,15 @@
+@import '../../vars.scss';
+.carContainer{
+    padding: 30px;
+    background-color: $background;
+}
+.backCar{
+    display: flex;
+    align-items: center;
+    &__icon{
+        font-size: 25px;
+    }
+}
+.carProducts{
+    padding-top : 10px;
+}
