@@ -1,0 +1,38 @@
+@import "../../vars.scss";
+.secFormPayment {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.formPayment__header {
+  display: flex;
+  align-items: center;
+
+  .arrow {
+    color: $MainColor;
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.formPayment {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .formPayment__inputContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formPayment__inputContainer--DateCvv {
+    display: flex;
+  }
+}

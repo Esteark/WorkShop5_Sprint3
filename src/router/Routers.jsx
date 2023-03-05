@@ -1,14 +1,12 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Carrito from "../components/carrito/Carrito";
-import DetalleProducto from "../components/detalleProducto/DetalleProducto";
-import Home from "../components/home/Home";
+import HomeLogin from "../components/login/HomeLogin";
 
 const Routers = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<DetalleProducto/>} />
+        <Route path="/" element={<HomeLogin />} />
       </Routes>
     </BrowserRouter>
   );
