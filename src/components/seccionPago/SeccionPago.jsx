@@ -35,13 +35,13 @@ const SeccionPago = () => {
             <input
               type="text"
               placeholder="MM/YY"
-              className="formPayment__input"
+              className="formPayment__input--date"
             />
           </div>
 
           <div className="formPayment__inputContainer--cvv">
             <label htmlFor="">CVV</label>
-            <input type="text" className="formPayment__input" />
+            <input type="text" className="formPayment__input--cvv" />
           </div>
         </div>
 
@@ -54,7 +54,7 @@ const SeccionPago = () => {
           />
         </div>
 
-        <button className="formPayment__button">Pagar ahora</button>
+        <button className="formPayment__button">Pagar Ahora</button>
       </form>
     </section>
   );

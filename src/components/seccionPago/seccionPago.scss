@@ -28,11 +28,67 @@
   flex-direction: column;
 
   .formPayment__inputContainer {
-    display: flex;
-    flex-direction: column;
+    gap: 10px;
+    @extend .formPayment;
+  }
+
+  .formPayment__input {
+    border: none;
+    font-size: 15px;
+    padding: 15px 15px;
+    border-radius: 5px;
+    &::placeholder {
+    }
+    &:focus {
+      outline: none;
+    }
   }
 
   .formPayment__inputContainer--DateCvv {
     display: flex;
+    gap: 10px;
+
+    .formPayment__inputContainer--date {
+      gap: 10px;
+      @extend .formPayment;
+
+      .formPayment__input--date {
+        width: 100%;
+        @extend .formPayment__input;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .formPayment__inputContainer--cvv {
+      gap: 10px;
+      @extend .formPayment;
+
+      .formPayment__input--cvv {
+        width: 100%;
+        @extend .formPayment__input;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+
+  .formPayment__button {
+    border: none;
+    background-color: $MainColor;
+    color: $white;
+    padding: 20px 0;
+    border-radius: 5px;
+    font-size: 17px;
+    box-shadow: 0 15px 14px #fa989c;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: $colorIcons;
+      transition: 0.5s;
+      cursor: pointer;
+    }
   }
 }
