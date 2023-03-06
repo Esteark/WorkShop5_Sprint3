@@ -4,6 +4,7 @@ import { getOfertas } from "../../services/ofertasActions";
 import { getProducts } from "../../services/productsActions";
 import InfoUser from "./infoUser/InfoUser";
 import SliderOfertas from "./sliderOfertas/SliderOfertas";
+import SliderProductos from "./SliderProducts/SliderProducts";
 import "./stylesHome.scss";
 
 export const HomeContext = createContext();
@@ -24,8 +25,12 @@ const Home = () => {
     obtenerProducts();
   }, []);
 
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
+
   return (
-    <HomeContext.Provider value={{ ofertas }}>
+    <HomeContext.Provider value={{ ofertas, products }}>
       <main className="SecMainHome">
         <InfoUser />
         <section className="textHeaderMain">
@@ -35,6 +40,20 @@ const Home = () => {
           </Link>
         </section>
         <SliderOfertas />
+        <section>
+          {products.length !== 0 ? (
+            products.map((item, index) => (
+              <SliderProductos
+                img={item.img}
+                name={item.name}
+                price={item.price}
+                key={item.id}
+              />
+            ))
+          ) : (
+            <></>
+          )}
+        </section>
       </main>
     </HomeContext.Provider>
   );
