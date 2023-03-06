@@ -1,5 +1,6 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../router/Routers";
 import { getOfertas } from "../../services/ofertasActions";
 import { getProducts } from "../../services/productsActions";
 import InfoUser from "./infoUser/InfoUser";
@@ -10,20 +11,12 @@ import "./stylesHome.scss";
 export const HomeContext = createContext();
 
 const Home = () => {
+  const { products, userLogin } = useContext(AppContext);
   const [ofertas, setOfertas] = useState([]);
   const getInOfertas = async () => {
     const ofert = await getOfertas();
     setOfertas(ofert);
   };
-  const [products, setProductos] = useState([]);
-  const obtenerProducts = async () => {
-    const productos = await getProducts();
-    setProductos(productos);
-  };
-  useEffect(() => {
-    getInOfertas();
-    obtenerProducts();
-  }, []);
 
   useEffect(() => {
     console.log(products);
@@ -47,7 +40,8 @@ const Home = () => {
                 img={item.img}
                 name={item.name}
                 price={item.price}
-                key={item.id}
+                key={index}
+                id={item.id}
               />
             ))
           ) : (

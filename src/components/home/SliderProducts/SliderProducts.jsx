@@ -1,11 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./stylesSlider.scss";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
-const SliderProducts = ({ img, name, price, key }) => {
+const SliderProducts = ({ img, name, price, id }) => {
+  const navigate = useNavigate();
   const clickProduct = () => {
-    console.log(key);
+    console.log(id);
+    navigate(`/producto/${id}`);
   };
   return (
     <Carousel
