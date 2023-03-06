@@ -1,7 +1,7 @@
 import axios from "axios";
 import endpoints from "../services/endpoints";
 
-export const getInfoUser = async () => {
+export const getUsers = async () => {
   try {
     const { data } = await axios.get(endpoints.usuarios);
     return data;

@@ -50,6 +50,11 @@
   .form__input {
     border: none;
     background: transparent;
+    color: $white;
+    font-weight: 500;
+    &:focus{
+      outline: none;
+    }
   }
   .form__input::placeholder {
     color: $white;
