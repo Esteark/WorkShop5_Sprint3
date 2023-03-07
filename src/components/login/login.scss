@@ -7,6 +7,7 @@
   justify-content: space-around;
   height: 100vh;
   color: $white;
+  padding: 0 20px;
 
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.473), rgba(0, 0, 0, 0.712)),
     url(https://images.pexels.com/photos/825661/pexels-photo-825661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
@@ -52,7 +53,7 @@
     background: transparent;
     color: $white;
     font-weight: 500;
-    &:focus{
+    &:focus {
       outline: none;
     }
   }
@@ -110,5 +111,17 @@
   .registerA:hover {
     border-bottom: 2px solid $MainColor;
     transition: 0.5s;
+  }
+}
+
+@media (min-width: 500px) {
+  .form {
+    width: 400px;
+    align-self: center;
+  }
+
+  .form__text {
+    width: 400px;
+    align-self: center;
   }
 }
