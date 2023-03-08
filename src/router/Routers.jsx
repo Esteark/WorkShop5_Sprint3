@@ -10,22 +10,36 @@ import Register from "../components/login/register/Register";
 
 export const AppContext = createContext();
 const Routers = () => {
-  const [userLogin, setUserLogin] = useState(getInfoUser());
+  const [userLogin, setUserLogin] = useState({});
   const [products, setProductos] = useState([]);
+
   const [inCar, setInCar] = useState([{}])
+  
+  const [formatterPeso, setFormatterPeso] = useState(0);
+useEffect(() => {
+    const formato = new Intl.NumberFormat("es-CO", {
+      style: "currency",
+      currency: "COP",
+      minimumFractionDigits: 0,
+    });
+
+    setFormatterPeso(formato);
+  }, []);
+
   const obtenerProducts = async () => {
     const productos = await getProducts();
     setProductos(productos);
   };
+  const validateUserSesion = () => {
+    setUserLogin(getInfoUser());
+  };
   useEffect(() => {
+    validateUserSesion();
     obtenerProducts();
   }, []);
-  useEffect(() => {
-   console.log(inCar)
-  }, [inCar])
-  
+ 
   return (
-    <AppContext.Provider value={{ userLogin, setUserLogin, products, inCar, setInCar }}>
+    <AppContext.Provider value={{ userLogin, setUserLogin, products, inCar, setInCar, validateUserSesion, formatterPeso }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeLogin />} />

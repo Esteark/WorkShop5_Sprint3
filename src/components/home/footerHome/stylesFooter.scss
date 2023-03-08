@@ -1,0 +1,67 @@
+@import "../../../vars.scss";
+
+.footerSec {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 10;
+  height: 65px;
+  background: $white;
+  padding: 0 20px;
+
+  figure {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    .icon {
+      color: $MainColor;
+      font-size: 25px;
+    }
+    .iconSearch {
+      @extend .icon;
+      color: $gray;
+    }
+    figcaption {
+      h4 {
+        color: $MainColor;
+        font-weight: 400;
+        font-size: 15px;
+      }
+      .textSearch {
+        color: $gray;
+      }
+    }
+  }
+  .hole {
+    width: auto;
+    height: inherit;
+    background-color: aqua;
+  }
+
+  .iconCarrito {
+    position: fixed;
+    transform: translate(-50%, -170%);
+    background-color: $white;
+    padding: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 3px -2px 33px -15px rgba(0, 0, 0, 0.75);
+  }
+
+  .secB {
+    background-color: $white;
+    // #halfcircle {
+    //   position: absolute;
+    //   height: 30px;
+    //   width: 30px;
+    //   top: -15px;
+    //   left: 47%;
+    //   background: $background;
+    //   border-radius: 100% 100%;
+    // }
+  }
+}

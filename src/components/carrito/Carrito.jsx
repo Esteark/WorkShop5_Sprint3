@@ -8,7 +8,7 @@ import './styles.scss'
 const Carrito = () => {
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0)
-  const {products, inCar} = useContext(AppContext)
+  const {products, inCar, formatterPeso} = useContext(AppContext)
   const handleBack = () =>{
     navigate(-1)
   }
@@ -37,7 +37,7 @@ const Carrito = () => {
         key={index} />
       }) }
       </section>
-    <button className="payButton">Pagar {totalPrice} </button>
+    <button className="payButton">Pagar {totalPrice ? formatterPeso.format(totalPrice) : '$ 0' } </button>
       </>
     : <></>}
   </section>;

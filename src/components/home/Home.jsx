@@ -2,21 +2,32 @@ import React, { createContext, useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "../../router/Routers";
 import { getOfertas } from "../../services/ofertasActions";
-import { getProducts } from "../../services/productsActions";
 import InfoUser from "./infoUser/InfoUser";
 import SliderOfertas from "./sliderOfertas/SliderOfertas";
 import SliderProductos from "./SliderProducts/SliderProducts";
+import { useNavigate } from "react-router-dom";
 import "./stylesHome.scss";
+import FooterHome from "./footerHome/FooterHome";
 
 export const HomeContext = createContext();
 
 const Home = () => {
-  const { products, userLogin } = useContext(AppContext);
+  const { products, userLogin, validateUserSesion, inCar } = useContext(AppContext);
   const [ofertas, setOfertas] = useState([]);
   const getInOfertas = async () => {
     const ofert = await getOfertas();
     setOfertas(ofert);
   };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getInOfertas();
+    validateUserSesion();
+    if (Object.entries(userLogin).length == 0) {
+      navigate("/");
+    }
+  }, []);
 
   useEffect(() => {
     console.log(products);
@@ -32,8 +43,10 @@ const Home = () => {
             Ver todas
           </Link>
         </section>
-        <SliderOfertas />
-        <section>
+        <section className="SliderSecOfertas">
+          <SliderOfertas />
+        </section>
+        <section className="SecProductsSlider">
           {products.length !== 0 ? (
             products.map((item, index) => (
               <SliderProductos
@@ -49,6 +62,7 @@ const Home = () => {
           )}
         </section>
       </main>
+      <FooterHome />
     </HomeContext.Provider>
   );
 };
