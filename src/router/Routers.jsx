@@ -9,17 +9,28 @@ import Register from "../components/login/register/Register";
 
 export const AppContext = createContext();
 const Routers = () => {
-  const [userLogin, setUserLogin] = useState(getInfoUser());
+  const [userLogin, setUserLogin] = useState({});
   const [products, setProductos] = useState([]);
   const obtenerProducts = async () => {
     const productos = await getProducts();
     setProductos(productos);
   };
+  const validateUserSesion = () => {
+    setUserLogin(getInfoUser());
+    console.log("entro");
+  };
   useEffect(() => {
+    validateUserSesion();
     obtenerProducts();
   }, []);
+  useEffect(() => {
+    console.log(userLogin);
+  }, [userLogin]);
+
   return (
-    <AppContext.Provider value={{ userLogin, setUserLogin, products }}>
+    <AppContext.Provider
+      value={{ userLogin, setUserLogin, products, validateUserSesion }}
+    >
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeLogin />} />
