@@ -6,6 +6,7 @@ import HomeLogin from "../components/login/HomeLogin";
 import Carrito from "../components/carrito/Carrito";
 import { getInfoUser } from "../services/infoLocalUser";
 import { getProducts } from "../services/productsActions";
+import Register from "../components/login/register/Register";
 
 export const AppContext = createContext();
 const Routers = () => {
@@ -28,6 +29,7 @@ const Routers = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeLogin />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/producto/:idProduct" element={<DetalleProducto />} />
           <Route path="/car" element={<Carrito/>}/>
