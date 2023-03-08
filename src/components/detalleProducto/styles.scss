@@ -95,6 +95,10 @@
         .basket{
             font-size: 30px;
         }
+        &:hover{
+            background-color: $white;
+            color: $MainColor;
+        }
     }
     .paybtn{
         padding: 15px;
@@ -114,4 +118,21 @@
 .container{
     display: flex;
     flex-direction: column;
+}
+.inBasket{
+    position: absolute;
+    
+    background-color: $white;
+    border-radius: 50%;
+    border: 2px solid $MainColor;
+    height: 16px;
+    width: 16px;
+    margin-left: 17px;
+    margin-bottom: 12px;
+    color: $MainColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
 }

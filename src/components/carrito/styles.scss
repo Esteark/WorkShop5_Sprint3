@@ -11,5 +11,20 @@
     }
 }
 .carProducts{
-    padding-top : 10px;
+    padding-top : 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 500px;
 }
+.payButton{
+    width: 100%;
+    padding: 15px;
+    border-style: none;
+    margin: 0 auto 0 auto;
+    border-radius: 5px;
+    background: $MainColor;
+    color: $white;
+    font-weight: 500;
+    cursor: pointer;
+}   
