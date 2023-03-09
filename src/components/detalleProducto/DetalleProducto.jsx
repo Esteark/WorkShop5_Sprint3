@@ -111,7 +111,8 @@ const DetalleProducto = () => {
               <figure key={index} className="figure__carousel"
                 style={{
                   backgroundImage: `linear-gradient(0deg, rgba(0,0,0,1) 2%, rgba(32,32,32,0) 38%), url(${item}) `,
-                  backgroundSize: 'cover'
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
                 }} >
               </figure>
             ))
