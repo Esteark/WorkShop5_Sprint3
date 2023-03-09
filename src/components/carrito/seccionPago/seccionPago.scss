@@ -1,6 +1,6 @@
-@import "../../vars.scss";
+@import "../../../vars.scss";
 .secFormPayment {
-  height: 100vh;
+  margin: 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -74,21 +74,21 @@
       }
     }
   }
+}
 
-  .formPayment__button {
-    border: none;
-    background-color: $MainColor;
-    color: $white;
-    padding: 20px 0;
-    border-radius: 5px;
-    font-size: 17px;
-    box-shadow: 0 15px 14px #fa989c;
+.formPayment__button {
+  border: none;
+  background-color: $MainColor;
+  color: $white;
+  padding: 20px 0;
+  border-radius: 5px;
+  font-size: 17px;
+  box-shadow: 0 15px 14px #fa989c;
+  transition: 0.5s;
+
+  &:hover {
+    background-color: $colorIcons;
     transition: 0.5s;
-
-    &:hover {
-      background-color: $colorIcons;
-      transition: 0.5s;
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 }

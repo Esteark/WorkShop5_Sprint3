@@ -4,11 +4,6 @@ import "./seccionPago.scss";
 const SeccionPago = () => {
   return (
     <section className="secFormPayment">
-      <header className="formPayment__header">
-        <span class="material-symbols-outlined arrow">arrow_back_ios</span>
-        <p>Carrito de compras</p>
-      </header>
-
       <form action="" className="formPayment">
         <h3>Información de pago</h3>
         <div className="formPayment__inputContainer">
