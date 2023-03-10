@@ -4,7 +4,7 @@ import Home from "../components/home/Home";
 import DetalleProducto from "../components/detalleProducto/DetalleProducto";
 import HomeLogin from "../components/login/HomeLogin";
 import Carrito from "../components/carrito/Carrito";
-import { getInfoUser } from "../services/infoLocalUser";
+import { getCarrito, getInfoUser } from "../services/infoLocalUser";
 import { getProducts } from "../services/productsActions";
 import Register from "../components/login/register/Register";
 import { getUsers } from "../services/usuariosActions";
@@ -14,7 +14,7 @@ export const AppContext = createContext();
 const Routers = () => {
   const [userLogin, setUserLogin] = useState({});
   const [products, setProductos] = useState([]);
-  const [inCar, setInCar] = useState([{}]);
+  const [inCar, setInCar] = useState(getCarrito());
   const [validateUsers, setValidateUsers] = useState([]);
   const [formatterPeso, setFormatterPeso] = useState(0);
   useEffect(() => {

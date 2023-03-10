@@ -27,8 +27,9 @@
   //   height: inherit;
   //   .hole {
   //     width: 100px;
-  //     height: inherit;
-  //     border: 2px solid $white;
+  //     height: 96px;
+  //     background-color: black;
+  //     border: 2px solid black;
   //     border-top-left-radius: 40px;
   //     border-top-right-radius: 40px;
   //   }
@@ -42,8 +43,8 @@
   //     border: 1px solid white;
   //     border-top: none;
   //     border-radius: 0 0 50% 50%;
-  //     position: fixed;
-  //     bottom: 0;
+  //     position: absolute;
+  //     top: -15px;
   //   }
   // }
 

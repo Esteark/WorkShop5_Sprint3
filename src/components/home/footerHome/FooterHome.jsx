@@ -26,6 +26,7 @@ const FooterHome = () => {
     }
   };
 
+  
   return (
     <footer className="footerSec">
       <figure
@@ -52,10 +53,10 @@ const FooterHome = () => {
           <BiBasket className="icon" />
           <div
             className={`iconProductsFooter ${
-              inCar.length == 0 ? "hidden" : ""
+              !inCar[0]?.id ? "hidden" : ""
             }`}
           >
-            <p>{inCar.length ? inCar.length : 0}</p>
+            <p>{!inCar[0]?.id ? 0 : inCar.length}</p>
           </div>
         </figure>
         <div className="hole"></div>

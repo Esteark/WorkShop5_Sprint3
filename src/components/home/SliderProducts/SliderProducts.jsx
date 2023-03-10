@@ -12,7 +12,6 @@ const SliderProducts = ({ img, name, price, id }) => {
 
   const navigate = useNavigate();
   const clickProduct = () => {
-    console.log(id);
     navigate(`/producto/${id}`);
   };
 
@@ -21,22 +20,20 @@ const SliderProducts = ({ img, name, price, id }) => {
   const { formatterPeso } = useContext(AppContext);
 
   const cantidadCarrito = () => {
-    let indice = -1;
+  
     inCar.forEach((item, index) => {
-      if (item.id === id) {
-        indice = item.id;
+      if (Number(item.id) === Number(id)) {
+        setCantidad(item.cantidad)
       }
     });
-    console.log(indice);
-    if (indice !== -1) {
-      setCantidad(inCar[inCar].cantidad);
-    }
   };
-
+  useEffect(() => {
+   console.log(cantidad)
+  }, [cantidad])
+  
   useEffect(() => {
     cantidadCarrito();
-    console.log(inCar);
-  }, []);
+  }, [inCar]);
 
   return (
     <Carousel
@@ -57,12 +54,12 @@ const SliderProducts = ({ img, name, price, id }) => {
             backgroundSize: "cover",
           }}
         >
-          <div className="SecIcons">
-            <figure className="iconCarrito">
+           <div className="SecIcons">
+            <figure className={`iconCarrito ${cantidad ? '' : 'visibility'}`}>
               <IoBagCheckOutline className="icon" />
               <div
                 className={`iconProductsFooter ${
-                  !cantidad == 0 ? "hidden" : ""
+                  cantidad == 0 ? "hidden" : ""
                 }`}
               >
                 <p>{cantidad}</p>
@@ -71,7 +68,7 @@ const SliderProducts = ({ img, name, price, id }) => {
             <figure className="iconCarrito">
               <IoHeart className="icon" />
             </figure>
-          </div>
+          </div> 
           <div>
             <p onClick={clickProduct}>{name}</p>
             <button onClick={clickProduct}>

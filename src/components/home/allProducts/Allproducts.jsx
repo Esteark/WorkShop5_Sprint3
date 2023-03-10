@@ -19,7 +19,7 @@ const Allproducts = () => {
     if (Object.entries(products).length !== 0) {
       if (target.length !== 0) {
         let array = products.filter((item) =>
-          item.name.toLowerCase().startsWith(target.value.toLowerCase().trim())
+          item.name.toLowerCase().includes(target.value.toLowerCase().trim())
         );
         setFilter(array);
       } else {
