@@ -7,6 +7,7 @@ import { AiFillStar } from "react-icons/ai";
 import { RiShoppingBasket2Line } from "react-icons/ri";
 import { AppContext } from "../../router/Routers";
 import { useNavigate, useParams } from "react-router-dom";
+import { setCarrito } from "../../services/infoLocalUser";
 
 const users = [
   {
@@ -28,7 +29,6 @@ const DetalleProducto = () => {
   useEffect(() => {
     const data = products.filter((item) => item.id == idProduct)
     setProduct(data[0])
-    console.log(data[0], idProduct)
   }, [products]);
 
   useEffect(() => {
@@ -62,6 +62,7 @@ const DetalleProducto = () => {
       }
       setInCar(newCar)
       setcounter(counter => counter + 1)
+      setCarrito(newCar)
     } else if (opt === "Minus") {
       if (counter > 0) {
         const newProduct = {
@@ -78,8 +79,13 @@ const DetalleProducto = () => {
         if (newProduct.cantidad == 0) {
           newCar = newCar.filter((elem) => elem.id !== newProduct.id)
         }
+        if(newCar.length == 0 ){
+          newCar = [{}] 
+        }
+        
         setInCar(newCar)
         setcounter(counter => counter - 1)
+        setCarrito(newCar)
       }
     }
   }
