@@ -30,9 +30,6 @@ const Home = () => {
     }
   }, []);
 
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
 
   return (
     <HomeContext.Provider value={{ ofertas, products }}>
