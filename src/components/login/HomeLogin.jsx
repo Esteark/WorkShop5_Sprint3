@@ -13,20 +13,19 @@ import "toastify-js/src/toastify.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const HomeLogin = () => {
-  const [validateUsers, setValidateUsers] = useState([]);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { userLogin, setUserLogin, validateUserSesion } =
-    useContext(AppContext);
+  const {
+    userLogin,
+    setUserLogin,
+    validateUserSesion,
+    validateUsers,
+    getUsuarios,
+  } = useContext(AppContext);
   const navigate = useNavigate();
-
-  const getUsuarios = async () => {
-    const data = await getUsers();
-    setValidateUsers(data);
-  };
 
   useEffect(() => {
     getUsuarios();

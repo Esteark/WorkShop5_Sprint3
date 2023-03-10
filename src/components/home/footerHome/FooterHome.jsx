@@ -1,31 +1,78 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./stylesFooter.scss";
 import { BiBookOpen } from "react-icons/bi";
 import { BiSearch } from "react-icons/bi";
 import { BiBasket } from "react-icons/bi";
+import { AppContext } from "../../../router/Routers";
+import { useNavigate } from "react-router-dom";
 
 const FooterHome = () => {
+  const { inCar } = useContext(AppContext);
+  useEffect(() => {
+    console.log(inCar);
+  }, [inCar]);
+  const navigate = useNavigate();
+
+  const navigateTo = (op) => {
+    switch (op) {
+      case 1:
+        navigate("/car");
+        break;
+      case 2:
+        navigate("/products");
+        break;
+      default:
+        navigate("/home");
+    }
+  };
+
   return (
     <footer className="footerSec">
-      <figure>
-        <BiBookOpen className="icon" />
-        <figcaption>
-          <h4>Home</h4>
-        </figcaption>
+      <figure
+        className="footerSec__secA"
+        onClick={() => {
+          navigateTo(0);
+        }}
+      >
+        <div>
+          <BiBookOpen className="icon" />
+          <figcaption>
+            <h4>Home</h4>
+          </figcaption>
+        </div>
       </figure>
 
-      <article className="secB">
-        <figure className="iconCarrito">
+      <article className="footerSec__secB">
+        <figure
+          className="iconCarrito"
+          onClick={() => {
+            navigateTo(1);
+          }}
+        >
           <BiBasket className="icon" />
+          <div
+            className={`iconProductsFooter ${
+              inCar.length == 0 ? "hidden" : ""
+            }`}
+          >
+            <p>{inCar.length ? inCar.length : 0}</p>
+          </div>
         </figure>
-        <div id="halfcircle"></div>
+        <div className="hole"></div>
       </article>
 
-      <figure>
-        <BiSearch className="icon iconSearch" />
-        <figcaption>
-          <h4 className="textSearch">Buscar</h4>
-        </figcaption>
+      <figure
+        className="footerSec__secC"
+        onClick={() => {
+          navigateTo(2);
+        }}
+      >
+        <div>
+          <BiSearch className="icon iconSearch" />
+          <figcaption>
+            <h4 className="textSearch">Buscar</h4>
+          </figcaption>
+        </div>
       </figure>
     </footer>
   );

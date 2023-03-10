@@ -9,3 +9,20 @@ export const getUsers = async () => {
     console.log(error);
   }
 };
+
+export const addUser = async (data) => {
+  try {
+    const { status } = await axios.post(endpoints.usuarios, data);
+    return status === 201 ? true : false;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// export const getInfouser = async (username = "", email = "") => {
+//   try {
+//     const {data} = await axios.get(`${endpoints.usuarios}?id`)
+//   } catch (error) {
+
+//   }
+// };

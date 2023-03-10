@@ -1,26 +1,73 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import useValidate from "../../../hooks/useValidate";
+import { AppContext } from "../../../router/Routers";
 import "./stylesRegister.scss";
 
 const Register = () => {
+  const { userLogin, validateUserSesion } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    validateUserSesion();
+  }, []);
+
+  useEffect(() => {
+    if (userLogin.hasOwnProperty("nomUser")) {
+      navigate("/home");
+    }
+  }, [userLogin]);
+
+  //Iniciamos el hook personalido
+  const [validate, handleValidate] = useValidate("");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmitForm = (data) => {
+    handleValidate(data.nomUser, "nomUser");
+    console.log(validate);
+  };
+
   return (
     <section className="secForm secRegister">
       <h2>Regístrate e inicia sesión en tu cuenta</h2>
 
-      <form className="form secRegisterForm">
+      <form
+        className="form secRegisterForm"
+        onSubmit={handleSubmit(onSubmitForm)}
+      >
         <div className="inputsContainer">
           <div className="form__inputContainer">
             <span className="material-symbols-outlined">person</span>
-            <input type="text" placeholder="Usuario" className="form__input" />
+            <input
+              type="text"
+              placeholder="Usuario"
+              className="form__input"
+              {...register("nomUser", {
+                required: "Ingresa un nombre válido por favor",
+              })}
+            />
           </div>
 
           <div className="form__inputContainer">
-            <span class="material-symbols-outlined">mail</span>
-            <input type="text" placeholder="Email" className="form__input" />
+            <span className="material-symbols-outlined">mail</span>
+            <input
+              type="text"
+              placeholder="Email"
+              className="form__input"
+              {...register("email", {
+                required: "Ingresa un nombre válido por favor",
+              })}
+            />
           </div>
 
           <div className="password">
-            <h4>Confirmar constraseña</h4>
+            <h4>Ingresa tu constraseña</h4>
 
             <div className="form__inputContainer">
               <span className="material-symbols-outlined">lock</span>
@@ -28,6 +75,9 @@ const Register = () => {
                 type="password"
                 placeholder="Contraseña"
                 className="form__input"
+                {...register("password2", {
+                  required: "Ingresa un nombre válido por favor",
+                })}
               />
             </div>
 
@@ -35,18 +85,24 @@ const Register = () => {
               <span className="material-symbols-outlined">lock</span>
               <input
                 type="password"
-                placeholder="Contraseña"
+                placeholder="Confirma tu contraseña"
                 className="form__input"
+                {...register("password", {
+                  required: "Ingresa un nombre válido por favor",
+                })}
               />
             </div>
           </div>
 
           <div className="form__inputContainer">
-            <span class="material-symbols-outlined">image</span>
+            <span className="material-symbols-outlined">image</span>
             <input
               type="text"
               placeholder="URL de tu Foto"
               className="form__input inputConfirm"
+              {...register("img", {
+                required: "Ingresa un nombre válido por favor",
+              })}
             />
           </div>
         </div>

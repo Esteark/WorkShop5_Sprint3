@@ -12,7 +12,8 @@ import FooterHome from "./footerHome/FooterHome";
 export const HomeContext = createContext();
 
 const Home = () => {
-  const { products, userLogin, validateUserSesion, inCar } = useContext(AppContext);
+  const { products, userLogin, validateUserSesion, inCar } =
+    useContext(AppContext);
   const [ofertas, setOfertas] = useState([]);
   const getInOfertas = async () => {
     const ofert = await getOfertas();
@@ -38,8 +39,8 @@ const Home = () => {
       <main className="SecMainHome">
         <InfoUser />
         <section className="textHeaderMain">
-          <h3>Pizzas disponibles</h3>
-          <Link className="linkProductsHeader" to={"/"}>
+          <h3>Comidas disponibles</h3>
+          <Link className="linkProductsHeader" to={"/products"}>
             Ver todas
           </Link>
         </section>
