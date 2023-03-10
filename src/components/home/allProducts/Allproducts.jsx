@@ -34,9 +34,11 @@ const Allproducts = () => {
         <article>
           <input
             type="text"
+            className="secAllProducts__input"
             onChange={(e) => {
               handleFilter(e);
             }}
+            placeholder="Buscar producto"
           />
         </article>
         <section className="SecProductsFilter">
@@ -51,14 +53,14 @@ const Allproducts = () => {
               />
             ))
           ) : (
-            <>
-              <article className="pizzaNotFound">
-                <figure>
-                  <img src={pizza} alt="" />
-                </figure>
-                <h3>No encontramos ningún producto con el filtro aplicado</h3>
-              </article>
-            </>
+            <article className="pizzaNotFound">
+              <figure>
+                <img src={pizza} alt="" className="pizzaNotFound__img" />
+              </figure>
+              <h3 className="pizzaNotFound__h3">
+                No encontramos ningún producto con ese nombre
+              </h3>
+            </article>
           )}
         </section>
       </section>

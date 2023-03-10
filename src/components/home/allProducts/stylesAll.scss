@@ -1,3 +1,4 @@
+@import "../../../vars.scss";
 .secAllProducts {
   padding: 10px 5%;
 
@@ -6,5 +7,26 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+}
+
+.pizzaNotFound {
+  gap: 20px;
+  color: $gray;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.secAllProducts__input {
+  border: none;
+  font-size: 15px;
+  padding: 15px 15px;
+  border-radius: 5px;
+  &::placeholder {
+  }
+  &:focus {
+    outline: none;
   }
 }

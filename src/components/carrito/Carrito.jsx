@@ -31,10 +31,10 @@ const Carrito = () => {
           <p>Carrito de compras</p>
         </header>
       ) : (
-        <figure onClick={() => handleBack()} className="backCar">
-          <BiChevronLeft className="backCar__icon" />
+        <header onClick={() => handleBack()} className="formPayment__header">
+          <span class="material-symbols-outlined arrow">arrow_back_ios</span>
           <p>Volver</p>
-        </figure>
+        </header>
       )}
 
       {inCar[0]?.id ? (
