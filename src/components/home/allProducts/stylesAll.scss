@@ -1,3 +1,10 @@
 .secAllProducts {
   padding: 10px 5%;
+
+  .SecProductsFilter {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
