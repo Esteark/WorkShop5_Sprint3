@@ -5,6 +5,7 @@ import InfoUser from "../infoUser/InfoUser";
 import SliderProducts from "../SliderProducts/SliderProducts";
 import "./stylesAll.scss";
 import pizza from "../../../assets/img/pizza2.png";
+import { BsSearchHeart } from "react-icons/bs";
 
 const Allproducts = () => {
   const { products } = useContext(AppContext);
@@ -31,7 +32,7 @@ const Allproducts = () => {
     <>
       <section className="secAllProducts">
         <InfoUser />
-        <article>
+        <article className="searchContainer">
           <input
             type="text"
             className="secAllProducts__input"
@@ -40,6 +41,7 @@ const Allproducts = () => {
             }}
             placeholder="Buscar producto"
           />
+          <BsSearchHeart className="seachIcon" />
         </article>
         <section className="SecProductsFilter">
           {filter.length !== 0 ? (
