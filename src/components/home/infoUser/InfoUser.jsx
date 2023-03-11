@@ -16,10 +16,7 @@ const InfoUser = () => {
         </p>
       </article>
       <figure className="SecUser__figure">
-        <img
-          src="https://fotografias.antena3.com/clipping/cmsimages01/2021/05/02/26E03450-C5FB-4D16-BC9B-B282AE784352/57.jpg"
-          alt=""
-        />
+        <img src={userLogin.img} alt="" />
       </figure>
     </section>
   );
