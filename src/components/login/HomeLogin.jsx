@@ -2,15 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import "./login.scss";
 import icon from "../../assets/img/pizza.png";
 import { useForm } from "react-hook-form";
-import { getUsers } from "../../services/usuariosActions.js";
 import { setInfoUser } from "../../services/infoLocalUser";
 import { AppContext } from "../../router/Routers";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-import StartToastifyInstance from "toastify-js";
-import "toastify-js/src/toastify.css";
-import "react-toastify/dist/ReactToastify.css";
+import { showNotification } from "../../services/Notify";
 
 const HomeLogin = () => {
   const {
@@ -37,22 +34,6 @@ const HomeLogin = () => {
       navigate("/home");
     }
   }, [userLogin]);
-
-  const showNotification = (mensaje) => {
-    StartToastifyInstance({
-      text: `${mensaje}`,
-      duration: 3000,
-      newWindow: true,
-      close: true,
-      gravity: "top", // `top` or `bottom`
-      position: "right", // `left`, `center` or `right`
-      stopOnFocus: true, // Prevents dismissing of toast on hover
-      style: {
-        background: "linear-gradient(to right, #fe164e, #fe164e)",
-      },
-      onClick: function () {}, // Callback after click
-    }).showToast();
-  };
 
   const onSubmit = (value) => {
     console.log(value);
