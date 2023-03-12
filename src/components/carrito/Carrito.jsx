@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { BiChevronLeft } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { TbHomeHeart } from "react-icons/tb";
+import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../../router/Routers";
 import ProductCar from "./ProductCar/ProductCar";
 import SeccionPago from "./seccionPago/SeccionPago";
 import "./styles.scss";
+import pizza from "../../assets/img/pizza2.png";
 
 const Carrito = () => {
   const navigate = useNavigate();
@@ -27,19 +28,31 @@ const Carrito = () => {
           className="formPayment__header"
           onClick={() => handleFormPayment()}
         >
-          <span class="material-symbols-outlined arrow">arrow_back_ios</span>
+          <span className="material-symbols-outlined arrow">
+            arrow_back_ios
+          </span>
           <p>Carrito de compras</p>
         </header>
       ) : (
         <header onClick={() => handleBack()} className="formPayment__header">
-          <span class="material-symbols-outlined arrow">arrow_back_ios</span>
+          <span className="material-symbols-outlined arrow">
+            arrow_back_ios
+          </span>
           <p>Volver</p>
         </header>
       )}
 
       {inCar[0]?.id ? (
-        <>
-          <section className={`carProducts ${confirmPayment ? "" : "height"}`}>
+        <section
+          className={`productFormContainer ${
+            confirmPayment ? "directionRow" : ""
+          }`}
+        >
+          <section
+            className={`carProducts ${
+              confirmPayment ? "heightWithForm" : "height"
+            }`}
+          >
             {inCar.map((elem, index) => {
               const product = products.find((item) => item.id == elem.id);
               const currentPrice = product.price * elem.cantidad;
@@ -66,9 +79,21 @@ const Carrito = () => {
               Pagar {totalPrice ? formatterPeso.format(totalPrice) : "$ 0"}{" "}
             </button>
           )}
-        </>
+        </section>
       ) : (
-        <></>
+        <>
+          <article className="pizzaNotFound">
+            <figure>
+              <img src={pizza} alt="" className="pizzaNotFound__img" />
+            </figure>
+            <h3>
+              No has elegido productos,{" "}
+              <Link to={"/Home"} className="pizzaNotFound__link">
+                dale click acá para volver el menú
+              </Link>
+            </h3>
+          </article>
+        </>
       )}
     </section>
   );
