@@ -9,6 +9,7 @@ import { getProducts } from "../services/productsActions";
 import Register from "../components/login/register/Register";
 import { getUsers } from "../services/usuariosActions";
 import Allproducts from "../components/home/allProducts/Allproducts";
+import PedidoExitoso from "../components/pedidoExitoso/PedidoExitoso";
 
 export const AppContext = createContext();
 const Routers = () => {
@@ -66,6 +67,7 @@ const Routers = () => {
           <Route path="/producto/:idProduct" element={<DetalleProducto />} />
           <Route path="/car" element={<Carrito />} />
           <Route path="/products" element={<Allproducts />} />
+          <Route path="/exito" element={<PedidoExitoso />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>

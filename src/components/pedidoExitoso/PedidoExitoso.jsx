@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./pedidoExitoso.scss";
 
 const PedidoExitoso = () => {
+  const navigate = useNavigate();
   return (
     <section className="secOrderSuccessful">
       <div className="OrderSuccessful">
@@ -16,7 +18,14 @@ const PedidoExitoso = () => {
         </p>
       </div>
 
-      <button className="secOrderSuccessful__button">Aceptar</button>
+      <button
+        className="secOrderSuccessful__button"
+        onClick={() => {
+          navigate("/home");
+        }}
+      >
+        Aceptar
+      </button>
     </section>
   );
 };
