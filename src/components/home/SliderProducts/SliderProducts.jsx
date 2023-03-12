@@ -7,6 +7,7 @@ import { AppContext } from "../../../router/Routers";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { IoHeart } from "react-icons/io5";
 import { setLocalFavorites } from "../../../services/infoLocalUser";
+import { showNotification } from "../../../services/Notify";
 
 const SliderProducts = ({ img, name, price, id }) => {
   const [cantidad, setCantidad] = useState(0);
@@ -16,36 +17,37 @@ const SliderProducts = ({ img, name, price, id }) => {
     navigate(`/producto/${id}`);
   };
 
-  const { inCar ,setFavorites, favorites } = useContext(AppContext);
+  const { inCar, setFavorites, favorites } = useContext(AppContext);
 
   const { formatterPeso } = useContext(AppContext);
 
   const cantidadCarrito = () => {
-  
     inCar.forEach((item, index) => {
       if (Number(item.id) === Number(id)) {
-        setCantidad(item.cantidad)
+        setCantidad(item.cantidad);
       }
     });
   };
   useEffect(() => {
-   console.log(cantidad)
-  }, [cantidad])
-  
+    console.log(cantidad);
+  }, [cantidad]);
+
   useEffect(() => {
     cantidadCarrito();
   }, [inCar]);
-  const handleFavorite = (id) =>{
-    if(favorites.includes(id)){
-      const newFav = favorites.filter((item)=> item !== id)
-      console.log(newFav)
-      setFavorites([...newFav])
-      setLocalFavorites([...newFav])
-    }else{
-      setFavorites([...favorites, id])
-      setLocalFavorites([...favorites, id])
+  const handleFavorite = (id) => {
+    if (favorites.includes(id)) {
+      const newFav = favorites.filter((item) => item !== id);
+      console.log(newFav);
+      setFavorites([...newFav]);
+      setLocalFavorites([...newFav]);
+      showNotification("Producto retirado de favoritos 🥺");
+    } else {
+      setFavorites([...favorites, id]);
+      setLocalFavorites([...favorites, id]);
+      showNotification("Producto agregado a favoritos 💛 ");
     }
-  }
+  };
   return (
     <Carousel
       emulateTouch={true}
@@ -55,7 +57,7 @@ const SliderProducts = ({ img, name, price, id }) => {
       showThumbs={false}
       width={"100%"}
       infiniteLoop={true}
-      className='carousel'
+      className="carousel"
     >
       {img.map((item, index) => (
         <figure
@@ -66,8 +68,8 @@ const SliderProducts = ({ img, name, price, id }) => {
             backgroundSize: "cover",
           }}
         >
-           <div className="SecIcons">
-            <figure className={`iconCarrito ${cantidad ? '' : 'visibility'}`}>
+          <div className="SecIcons">
+            <figure className={`iconCarrito ${cantidad ? "" : "visibility"}`}>
               <IoBagCheckOutline className="icon" />
               <div
                 className={`iconProductsFooter ${
@@ -78,9 +80,11 @@ const SliderProducts = ({ img, name, price, id }) => {
               </div>
             </figure>
             <figure onClick={() => handleFavorite(id)} className="iconCarrito">
-              <IoHeart className={favorites.includes(id) ? 'icon' : 'favorite'} />
+              <IoHeart
+                className={favorites.includes(id) ? "icon" : "favorite"}
+              />
             </figure>
-          </div> 
+          </div>
           <div>
             <p onClick={clickProduct}>{name}</p>
             <button onClick={clickProduct}>

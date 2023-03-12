@@ -6,6 +6,10 @@ export const setInfoUser = (data) => {
   localStorage.setItem("user", JSON.stringify(data));
 };
 
+export const logoutUser = () => {
+  localStorage.removeItem("user");
+};
+
 export const setCarrito = (inCar) => {
   localStorage.setItem("car", JSON.stringify(inCar));
 };

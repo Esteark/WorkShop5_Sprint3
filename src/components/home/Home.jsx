@@ -12,9 +12,10 @@ import FooterHome from "./footerHome/FooterHome";
 export const HomeContext = createContext();
 
 const Home = () => {
-  const { products, userLogin, validateUserSesion, inCar } =
+  const { products, userLogin, validateUserSesion, inCar, obtenerProducts } =
     useContext(AppContext);
   const [ofertas, setOfertas] = useState([]);
+  const [productFilter, setProductFilter] = useState(products.slice(0, 6));
   const getInOfertas = async () => {
     const ofert = await getOfertas();
     setOfertas(ofert);
@@ -30,6 +31,9 @@ const Home = () => {
     }
   }, []);
 
+  useEffect(() => {
+    setProductFilter(products.slice(0, 6));
+  }, [products]);
 
   return (
     <HomeContext.Provider value={{ ofertas, products }}>
@@ -45,8 +49,8 @@ const Home = () => {
           <SliderOfertas />
         </section>
         <section className="SecProductsSlider">
-          {products.length !== 0 ? (
-            products.map((item, index) => (
+          {products.length && productFilter.length ? (
+            productFilter.map((item, index) => (
               <SliderProductos
                 img={item.img}
                 name={item.name}

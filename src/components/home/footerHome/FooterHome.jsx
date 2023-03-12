@@ -56,7 +56,6 @@ const FooterHome = () => {
             <p>{!inCar[0]?.id ? 0 : inCar.length}</p>
           </div>
         </figure>
-        <div className="hole"></div>
       </article>
 
       <figure
