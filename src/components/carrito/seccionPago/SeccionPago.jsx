@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import "./seccionPago.scss";
 import Swal from "sweetalert2";
@@ -14,13 +14,22 @@ const SeccionPago = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   const { inCar, setInCar } = useContext(AppContext);
   const navigate = useNavigate();
 
   //Iniciamos el hook personalido
   const validacion = useValidate();
-
+  
+  let slash = false;
+  const handleDate = ({target}) =>{
+    console.log(target.value.split('').length)
+    if(target.value.split('').length == 2 && !slash){
+      target.value = target.value+'/'
+      slash = true
+    }else if(target.value.split('').length == 1){
+      slash = false
+    }
+  }
   const onSubmitForm = (data) => {
     const newCompra = {
       nomUser: data.nomUser,
@@ -109,6 +118,7 @@ const SeccionPago = () => {
               type="text"
               placeholder="MM/YY"
               className="formPayment__input--date"
+              onInput={(e)=> handleDate(e)}
               {...register("date", {
                 required: "el campo no debe estar vacío",
                 pattern: {

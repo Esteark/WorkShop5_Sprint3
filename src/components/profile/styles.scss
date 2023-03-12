@@ -44,3 +44,11 @@
         gap: 10px;
     }
 }
+@media (min-width: 768px){
+    .bgModal{
+        flex-direction: row;
+    }
+    .profileImg{
+        width: 50%
+    }
+}
