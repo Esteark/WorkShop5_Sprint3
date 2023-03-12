@@ -16,6 +16,7 @@ const Profile = () => {
         <p>Volver</p>
       </header>
       <img src={userLogin.img} className='profileImg' alt="" />
+      <section>
       <section className='profileInfo'>
         <h1>{userLogin.nomUser}</h1>
         <h4>{userLogin.email}</h4>
@@ -24,6 +25,7 @@ const Profile = () => {
         <button onClick={() => navigate('/favorites')}>Favoritos <IoHeart /></button>
         <button>Cerrar Sesión</button>
       </div>
+      </section>
     </div>
   )
 }
