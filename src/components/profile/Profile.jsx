@@ -23,14 +23,9 @@ const Profile = () => {
         <span class="material-symbols-outlined arrow">arrow_back_ios</span>
         <p>Volver</p>
       </header>
-<<<<<<< HEAD
-      <img src={userLogin.img} className="profileImg" alt="" />
-      <section className="profileInfo">
-=======
       <img src={userLogin.img} className='profileImg' alt="" />
       <section>
       <section className='profileInfo'>
->>>>>>> 1b6efb98d8f71607d10666b0b065f8718d3a40e0
         <h1>{userLogin.nomUser}</h1>
         <h4>{userLogin.email}</h4>
       </section>
