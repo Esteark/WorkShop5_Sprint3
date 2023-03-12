@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { BiChevronLeft } from "react-icons/bi";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { AppContext } from "../../router/Routers";
 import ProductCar from "./ProductCar/ProductCar";
 import SeccionPago from "./seccionPago/SeccionPago";
 import "./styles.scss";
+import pizza from "../../assets/img/pizza2.png";
 
 const Carrito = () => {
   const navigate = useNavigate();
@@ -60,10 +60,16 @@ const Carrito = () => {
       )}
 
       {inCar[0]?.id ? (
-        <>
+        <section
+          className={`productFormContainer ${
+            confirmPayment ? "directionRow" : ""
+          }`}
+        >
           {products.length ? (
             <section
-              className={`carProducts ${confirmPayment ? "" : "height"}`}
+              className={`carProducts ${
+                confirmPayment ? "heightWithForm" : "height"
+              }`}
             >
               {inCar.map((elem, index) => {
                 console.log(products);
@@ -86,6 +92,7 @@ const Carrito = () => {
           ) : (
             <></>
           )}
+
           {confirmPayment ? (
             <SeccionPago />
           ) : (
@@ -96,9 +103,21 @@ const Carrito = () => {
               Pagar {totalPrice ? formatterPeso.format(totalPrice) : "$ 0"}
             </button>
           )}
-        </>
+        </section>
       ) : (
-        <></>
+        <>
+          <article className="pizzaNotFound">
+            <figure>
+              <img src={pizza} alt="" className="pizzaNotFound__img" />
+            </figure>
+            <h3>
+              No has elegido productos,{" "}
+              <Link to={"/Home"} className="pizzaNotFound__link">
+                dale click acá para volver el menú
+              </Link>
+            </h3>
+          </article>
+        </>
       )}
     </section>
   );

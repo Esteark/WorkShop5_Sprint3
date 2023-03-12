@@ -97,7 +97,7 @@ const HomeLogin = () => {
         <div className="form__inputContainer">
           <span className="material-symbols-outlined">lock</span>
           <input
-            type="text"
+            type="password"
             placeholder="Contraseña"
             className="form__input"
             {...register("password", { required: "constraseña incorrecta" })}
