@@ -9,12 +9,16 @@
     align-items: center;
     gap: 10px;
     border-radius: 12px;
+    &__head{
+        display: flex;
+        justify-content: space-between;
+    }
     &__name{
         font-weight: 200;
         font-size: 20px;
     }
     &__img{
-        width: 80px;
+        width: 40%;
         height: 80%;
         border-radius: 10px;
     }

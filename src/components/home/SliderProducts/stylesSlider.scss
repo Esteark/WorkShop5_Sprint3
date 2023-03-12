@@ -23,8 +23,12 @@
       justify-content: center;
       align-items: center;
       background-color: $white;
+      
       .icon {
         color: $MainColor;
+      }
+      .favorite{
+        color: rgba(128, 128, 128, 0.355);
       }
       .iconProductsFooter {
         position: absolute;
@@ -77,7 +81,10 @@
 .visibility{
   visibility: hidden !important;
 }
-@media (min-width: 768px) {
+@media (min-width: 887px) {
+  .SecFigureProducts {
+    width: 380px;
+  }
 }
 
 @media (min-width: 992px) {

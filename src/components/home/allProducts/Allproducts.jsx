@@ -8,12 +8,18 @@ import pizza from "../../../assets/img/pizza2.png";
 import { BsSearchHeart } from "react-icons/bs";
 
 const Allproducts = () => {
-  const { products } = useContext(AppContext);
+  const { products, obtenerProducts } = useContext(AppContext);
   const [filter, setFilter] = useState(products);
 
   useEffect(() => {
-    console.log(filter);
-  }, [filter]);
+    if (products.length) {
+      obtenerProducts();
+    }
+  }, []);
+
+  useEffect(() => {
+    setFilter(products);
+  }, [products]);
 
   const handleFilter = ({ target }) => {
     console.log(target.value);
@@ -44,7 +50,7 @@ const Allproducts = () => {
           <BsSearchHeart className="seachIcon" />
         </article>
         <section className="SecProductsFilter">
-          {filter.length !== 0 ? (
+          {products.length && filter.length ? (
             filter.map((item, index) => (
               <SliderProducts
                 img={item.img}

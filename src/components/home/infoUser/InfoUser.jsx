@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AppContext } from "../../../router/Routers";
+import { IoHeart } from "react-icons/io5";
 import "./stylesUser.scss";
 
 const InfoUser = () => {
   const { userLogin } = useContext(AppContext);
+  const [heart, setHeart] = useState(false)
+  const navigate = useNavigate()
+  const handleModal = () =>{
+    navigate('/profile')
+  }
   return (
+   
     <section className="SecUser">
       <article className="SecUser__article">
         <h2>Home</h2>
@@ -15,13 +23,16 @@ const InfoUser = () => {
           </span>
         </p>
       </article>
-      <figure className="SecUser__figure">
+      <figure onMouseEnter={()=>setHeart(true)} onMouseLeave={()=>setHeart(false)} className="SecUser__figure" onClick={handleModal}>
         <img
-          src="https://fotografias.antena3.com/clipping/cmsimages01/2021/05/02/26E03450-C5FB-4D16-BC9B-B282AE784352/57.jpg"
+          src={userLogin.img}
           alt=""
         />
+        <IoHeart className={`favoriteUser ${!heart ? 'visibility' : ''}`}/>
       </figure>
+      
     </section>
+   
   );
 };
 

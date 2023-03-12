@@ -14,10 +14,18 @@
   .SliderSecOfertas {
     margin-bottom: 20px;
   }
-
   .SecProductsSlider {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin-bottom: 20%;
+  }
+}
+
+@media (min-width: 992px) {
+  .SecMainHome {
+    .SecProductsSlider {
+      margin: 6% 0;
+    }
   }
 }

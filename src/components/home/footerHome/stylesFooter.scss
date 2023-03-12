@@ -23,31 +23,6 @@
     }
   }
 
-  // &__secB {
-  //   height: inherit;
-  //   .hole {
-  //     width: 100px;
-  //     height: 96px;
-  //     background-color: black;
-  //     border: 2px solid black;
-  //     border-top-left-radius: 40px;
-  //     border-top-right-radius: 40px;
-  //   }
-  //   .hole::before {
-  //     transform: translatey(12.5px);
-  //     content: "";
-  //     width: 98px;
-  //     height: 95px;
-  //     margin-left: -2px;
-  //     background-color: white;
-  //     border: 1px solid white;
-  //     border-top: none;
-  //     border-radius: 0 0 50% 50%;
-  //     position: absolute;
-  //     top: -15px;
-  //   }
-  // }
-
   &__secC {
     width: 40%;
     height: inherit;
@@ -118,10 +93,4 @@
 
 .hidden {
   display: none !important;
-}
-
-@media (min-width: 992px) {
-  .footerSec {
-    background-color: $white;
-  }
 }

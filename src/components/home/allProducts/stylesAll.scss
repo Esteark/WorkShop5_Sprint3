@@ -42,6 +42,31 @@
   }
 }
 
+@media (min-width: 886px) {
+  .SecProductsFilter,
+  .SecProductsSlider {
+    flex-direction: row !important;
+    justify-content: center !important;
+    flex-wrap: wrap;
+  }
+  .carousel {
+    width: 390px;
+    padding: 0px;
+  }
+}
+
+@media (min-width: 992px) {
+  .SecProductsFilter,
+  .SecProductsSlider {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .carousel {
+    width: 390px;
+    padding: 0px;
+  }
+}
+
 .seachIcon {
   color: $MainColor;
   width: 22px;

@@ -21,6 +21,7 @@
     }
   }
   &__figure {
+    cursor: pointer;
     width: 60px;
     height: 60px;
     border-radius: 80px;
@@ -31,4 +32,10 @@
       border-radius: inherit;
     }
   }
+}
+.favoriteUser{
+  position: absolute;
+  transform: translate(-53px, 12px);
+  font-size: 45px;
+  color: $white;
 }
