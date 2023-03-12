@@ -52,6 +52,7 @@ const Carrito = () => {
                   total={totalPrice}
                   quantity={elem.cantidad}
                   key={index}
+                  id={product.id}
                 />
               );
             })}

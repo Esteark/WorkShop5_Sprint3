@@ -40,7 +40,7 @@ const DetalleProducto = () => {
   }, [])
 
   const backHome = () => {
-    navigate('/home')
+    navigate(-1)
   }
   const handleProduct = (opt) => {
     if (opt === "Add") {
@@ -110,7 +110,7 @@ const DetalleProducto = () => {
           width={"100%"}
           infiniteLoop={true}
           dynamicHeight={false}
-          className='carousel'
+          className='carouseld'
         >
           {product?.img ? (
             product.img.map((item, index) => (

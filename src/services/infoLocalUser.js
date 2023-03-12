@@ -13,3 +13,11 @@ export const setCarrito = (inCar) =>{
 export const getCarrito = () =>{
   return JSON.parse(localStorage.getItem('car')) || [{}]
 }
+
+export const setLocalFavorites = (data) =>{
+  localStorage.setItem('favorites', JSON.stringify(data))
+}
+
+export const getFavorites = () =>{
+  return JSON.parse(localStorage.getItem('favorites')) || []
+}

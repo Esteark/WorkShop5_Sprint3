@@ -4,11 +4,13 @@ import Home from "../components/home/Home";
 import DetalleProducto from "../components/detalleProducto/DetalleProducto";
 import HomeLogin from "../components/login/HomeLogin";
 import Carrito from "../components/carrito/Carrito";
-import { getCarrito, getInfoUser } from "../services/infoLocalUser";
+import { getCarrito, getFavorites, getInfoUser } from "../services/infoLocalUser";
 import { getProducts } from "../services/productsActions";
 import Register from "../components/login/register/Register";
 import { getUsers } from "../services/usuariosActions";
 import Allproducts from "../components/home/allProducts/Allproducts";
+import Favorites from "../components/favorites/Favorites";
+import Profile from "../components/profile/Profile";
 
 export const AppContext = createContext();
 const Routers = () => {
@@ -17,6 +19,7 @@ const Routers = () => {
   const [inCar, setInCar] = useState(getCarrito());
   const [validateUsers, setValidateUsers] = useState([]);
   const [formatterPeso, setFormatterPeso] = useState(0);
+  const [favorites, setFavorites] = useState(getFavorites())
   useEffect(() => {
     const formato = new Intl.NumberFormat("es-CO", {
       style: "currency",
@@ -56,6 +59,8 @@ const Routers = () => {
         formatterPeso,
         validateUsers,
         getUsuarios,
+        favorites,
+        setFavorites
       }}
     >
       <BrowserRouter>
@@ -66,6 +71,8 @@ const Routers = () => {
           <Route path="/producto/:idProduct" element={<DetalleProducto />} />
           <Route path="/car" element={<Carrito />} />
           <Route path="/products" element={<Allproducts />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>
