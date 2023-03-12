@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BiChevronLeft } from "react-icons/bi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../../router/Routers";
 import ProductCar from "./ProductCar/ProductCar";
 import SeccionPago from "./seccionPago/SeccionPago";
@@ -10,7 +10,12 @@ const Carrito = () => {
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
   const [confirmPayment, setconfirmPayment] = useState(false);
-  const { products, inCar, formatterPeso } = useContext(AppContext);
+  const { products, inCar, formatterPeso, obtenerProducts } =
+    useContext(AppContext);
+
+  // const [product, setProduct] = useState([{}]);
+
+  const { pago } = useParams();
   const handleBack = () => {
     navigate(-1);
   };
@@ -20,6 +25,19 @@ const Carrito = () => {
   const handleFormPayment = () => {
     setconfirmPayment(!confirmPayment);
   };
+
+  useEffect(() => {
+    Number(pago) === 1 ? setconfirmPayment(true) : setconfirmPayment(false);
+    if (products.length) {
+      obtenerProducts();
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log(products);
+    console.log(inCar);
+  }, [products]);
+
   return (
     <section className="carContainer">
       {confirmPayment ? (
@@ -27,36 +45,47 @@ const Carrito = () => {
           className="formPayment__header"
           onClick={() => handleFormPayment()}
         >
-          <span class="material-symbols-outlined arrow">arrow_back_ios</span>
+          <span className="material-symbols-outlined arrow">
+            arrow_back_ios
+          </span>
           <p>Carrito de compras</p>
         </header>
       ) : (
         <header onClick={() => handleBack()} className="formPayment__header">
-          <span class="material-symbols-outlined arrow">arrow_back_ios</span>
+          <span className="material-symbols-outlined arrow">
+            arrow_back_ios
+          </span>
           <p>Volver</p>
         </header>
       )}
 
       {inCar[0]?.id ? (
         <>
-          <section className={`carProducts ${confirmPayment ? "" : "height"}`}>
-            {inCar.map((elem, index) => {
-              const product = products.find((item) => item.id == elem.id);
-              const currentPrice = product.price * elem.cantidad;
-              return (
-                <ProductCar
-                  name={product.name}
-                  price={currentPrice}
-                  img={product.img[0]}
-                  handleTotal={handleTotal}
-                  total={totalPrice}
-                  quantity={elem.cantidad}
-                  key={index}
-                  id={product.id}
-                />
-              );
-            })}
-          </section>
+          {products.length ? (
+            <section
+              className={`carProducts ${confirmPayment ? "" : "height"}`}
+            >
+              {inCar.map((elem, index) => {
+                console.log(products);
+                const product = products.find((item) => item.id == elem.id);
+                const currentPrice = product.price * elem.cantidad;
+                return (
+                  <ProductCar
+                    name={product.name}
+                    price={currentPrice}
+                    img={product.img[0]}
+                    handleTotal={handleTotal}
+                    total={totalPrice}
+                    quantity={elem.cantidad}
+                    key={index}
+                    id={product.id}
+                  />
+                );
+              })}
+            </section>
+          ) : (
+            <></>
+          )}
           {confirmPayment ? (
             <SeccionPago />
           ) : (
@@ -64,7 +93,7 @@ const Carrito = () => {
               className="payButton formPayment__button"
               onClick={() => handleFormPayment()}
             >
-              Pagar {totalPrice ? formatterPeso.format(totalPrice) : "$ 0"}{" "}
+              Pagar {totalPrice ? formatterPeso.format(totalPrice) : "$ 0"}
             </button>
           )}
         </>

@@ -4,7 +4,11 @@ import Home from "../components/home/Home";
 import DetalleProducto from "../components/detalleProducto/DetalleProducto";
 import HomeLogin from "../components/login/HomeLogin";
 import Carrito from "../components/carrito/Carrito";
-import { getCarrito, getFavorites, getInfoUser } from "../services/infoLocalUser";
+import {
+  getCarrito,
+  getFavorites,
+  getInfoUser,
+} from "../services/infoLocalUser";
 import { getProducts } from "../services/productsActions";
 import Register from "../components/login/register/Register";
 import { getUsers } from "../services/usuariosActions";
@@ -20,7 +24,7 @@ const Routers = () => {
   const [inCar, setInCar] = useState(getCarrito());
   const [validateUsers, setValidateUsers] = useState([]);
   const [formatterPeso, setFormatterPeso] = useState(0);
-  const [favorites, setFavorites] = useState(getFavorites())
+  const [favorites, setFavorites] = useState(getFavorites());
   useEffect(() => {
     const formato = new Intl.NumberFormat("es-CO", {
       style: "currency",
@@ -61,7 +65,8 @@ const Routers = () => {
         validateUsers,
         getUsuarios,
         favorites,
-        setFavorites
+        setFavorites,
+        obtenerProducts,
       }}
     >
       <BrowserRouter>
@@ -70,7 +75,7 @@ const Routers = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home />} />
           <Route path="/producto/:idProduct" element={<DetalleProducto />} />
-          <Route path="/car" element={<Carrito />} />
+          <Route path="/car/:pago" element={<Carrito />} />
           <Route path="/products" element={<Allproducts />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/profile" element={<Profile />} />

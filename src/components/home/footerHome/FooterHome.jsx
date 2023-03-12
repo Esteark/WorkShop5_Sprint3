@@ -16,7 +16,7 @@ const FooterHome = () => {
   const navigateTo = (op) => {
     switch (op) {
       case 1:
-        navigate("/car");
+        navigate(`/car/0`);
         break;
       case 2:
         navigate("/products");
@@ -26,7 +26,6 @@ const FooterHome = () => {
     }
   };
 
-  
   return (
     <footer className="footerSec">
       <figure
@@ -52,9 +51,7 @@ const FooterHome = () => {
         >
           <BiBasket className="icon" />
           <div
-            className={`iconProductsFooter ${
-              !inCar[0]?.id ? "hidden" : ""
-            }`}
+            className={`iconProductsFooter ${!inCar[0]?.id ? "hidden" : ""}`}
           >
             <p>{!inCar[0]?.id ? 0 : inCar.length}</p>
           </div>
