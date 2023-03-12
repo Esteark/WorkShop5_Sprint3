@@ -5,6 +5,11 @@
   flex-direction: column;
   justify-content: space-around;
 }
+.lblErrorPago {
+  color: $MainColor;
+  font-size: 13px;
+  font-weight: 500;
+}
 
 .formPayment__header {
   display: flex;

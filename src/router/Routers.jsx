@@ -11,6 +11,7 @@ import { getUsers } from "../services/usuariosActions";
 import Allproducts from "../components/home/allProducts/Allproducts";
 import Favorites from "../components/favorites/Favorites";
 import Profile from "../components/profile/Profile";
+import PedidoExitoso from "../components/pedidoExitoso/PedidoExitoso";
 
 export const AppContext = createContext();
 const Routers = () => {
@@ -73,6 +74,7 @@ const Routers = () => {
           <Route path="/products" element={<Allproducts />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/exito" element={<PedidoExitoso />} />
         </Routes>
       </BrowserRouter>
     </AppContext.Provider>

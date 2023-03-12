@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import useValidate from "../../../hooks/useValidate";
 import { AppContext } from "../../../router/Routers";
+import { showNotification } from "../../../services/Notify";
+import { addUser } from "../../../services/usuariosActions";
 import "./stylesRegister.scss";
 
 const Register = () => {
@@ -20,7 +22,7 @@ const Register = () => {
   }, [userLogin]);
 
   //Iniciamos el hook personalido
-  const [validate, handleValidate] = useValidate("");
+  const validacion = useValidate();
 
   const {
     register,
@@ -29,8 +31,23 @@ const Register = () => {
   } = useForm();
 
   const onSubmitForm = (data) => {
-    handleValidate(data.nomUser, "nomUser");
-    console.log(validate);
+    if (data.password !== data.password2) {
+      showNotification("Las contraseñas no coinciden revísalas por favor");
+    } else {
+      const newUser = {
+        nomUser: data.nomUser,
+        email: data.email,
+        passWord: data.password,
+        img: data.img,
+      };
+      const response = addUser(newUser);
+      if (response) {
+        showNotification("Usuario agregado, inicie sesión por favor");
+        navigate("/exito");
+      } else {
+        showNotification("Ocurrió un error al procesar la solicitud");
+      }
+    }
   };
 
   return (
@@ -49,10 +66,20 @@ const Register = () => {
               placeholder="Usuario"
               className="form__input"
               {...register("nomUser", {
-                required: "Ingresa un nombre válido por favor",
+                required: "el campo no debe estar vacío",
+                pattern: {
+                  value: validacion.nomUser,
+                  message:
+                    "El nombre de usuario no puede contener espacios vacíos",
+                },
               })}
             />
           </div>
+          {errors.nomUser ? (
+            <span className="lblError">{errors.nomUser.message}</span>
+          ) : (
+            <></>
+          )}
 
           <div className="form__inputContainer">
             <span className="material-symbols-outlined">mail</span>
@@ -61,11 +88,19 @@ const Register = () => {
               placeholder="Email"
               className="form__input"
               {...register("email", {
-                required: "Ingresa un nombre válido por favor",
+                required: "El campo no debe estar vacío",
+                pattern: {
+                  value: validacion.email,
+                  message: "Ingresa un correo válido por favor",
+                },
               })}
             />
           </div>
-
+          {errors.email ? (
+            <span className="lblError">{errors.email.message}</span>
+          ) : (
+            <></>
+          )}
           <div className="password">
             <h4>Ingresa tu constraseña</h4>
 
@@ -75,8 +110,13 @@ const Register = () => {
                 type="password"
                 placeholder="Contraseña"
                 className="form__input"
-                {...register("password2", {
-                  required: "Ingresa un nombre válido por favor",
+                {...register("password", {
+                  required: "El campo no debe estar vacío",
+                  pattern: {
+                    value: validacion.password,
+                    message:
+                      "La contraseña debe contener almenos una mayuscula un numero y un caracter especial",
+                  },
                 })}
               />
             </div>
@@ -87,13 +127,19 @@ const Register = () => {
                 type="password"
                 placeholder="Confirma tu contraseña"
                 className="form__input"
-                {...register("password", {
-                  required: "Ingresa un nombre válido por favor",
+                {...register("password2", {
+                  required: "El campo no debe estar vacío",
                 })}
               />
             </div>
           </div>
-
+          {errors.password ? (
+            <span className="lblError">{errors.password.message}</span>
+          ) : errors.password2 ? (
+            <span className="lblError">{errors.password2.message}</span>
+          ) : (
+            <></>
+          )}
           <div className="form__inputContainer">
             <span className="material-symbols-outlined">image</span>
             <input
@@ -101,11 +147,16 @@ const Register = () => {
               placeholder="URL de tu Foto"
               className="form__input inputConfirm"
               {...register("img", {
-                required: "Ingresa un nombre válido por favor",
+                required: "El campo no debe estar vacío",
               })}
             />
           </div>
         </div>
+        {errors.img ? (
+          <span className="lblError">{errors.img.message}</span>
+        ) : (
+          <></>
+        )}
 
         <button className="form__button">Registrarme</button>
       </form>
