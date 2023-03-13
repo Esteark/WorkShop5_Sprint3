@@ -41,7 +41,10 @@ const HomeLogin = () => {
     let userLogin = {};
     validateUsers.forEach((user) => {
       console.log(user);
-      if (value.userName === user.nomUser && value.password === user.passWord) {
+      if (
+        value.userName.trim() === user.nomUser &&
+        value.password === user.passWord
+      ) {
         console.log(user);
         validateUser = true;
         userLogin = user;
