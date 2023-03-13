@@ -49,6 +49,8 @@
     align-items: center;
     gap: 10px;
     cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
     border: none;
     transition: 0.5s;
     &:hover {
@@ -62,6 +64,7 @@
     flex-direction: row;
     justify-content: center;
     gap: 50px;
+    height: 80vh;
   }
   .profileImg {
     width: 300px;

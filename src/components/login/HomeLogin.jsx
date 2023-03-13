@@ -93,6 +93,13 @@ const HomeLogin = () => {
             })}
           />
         </div>
+        {errors.userName ? (
+          <>
+            <span className="lblErrorLogin">No dejes este campo vacío</span>
+          </>
+        ) : (
+          <></>
+        )}
 
         <div className="form__inputContainer">
           <span className="material-symbols-outlined">lock</span>
@@ -103,6 +110,13 @@ const HomeLogin = () => {
             {...register("password", { required: "constraseña incorrecta" })}
           />
         </div>
+        {errors.password ? (
+          <>
+            <span className="lblErrorLogin">No dejes este campo vacío</span>
+          </>
+        ) : (
+          <></>
+        )}
 
         <button className="form__button">Iniciar sesión</button>
         <a href="" className="form__password">

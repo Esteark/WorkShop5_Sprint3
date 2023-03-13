@@ -45,8 +45,16 @@ const Favorites = () => {
         ) : (
           <>
             <section className="pizzaNotFound notFavorites">
-              <img src="https://img.freepik.com/free-icon/pizza_318-531095.jpg" alt="" />
-              <h3>Aún no tienes tu menú de favoritos, <Link to='/home'>Empiza a buscar tu comida favorita ahora</Link></h3>
+              <img
+                src="https://img.freepik.com/free-icon/pizza_318-531095.jpg"
+                alt=""
+              />
+              <h3>
+                Aún no tienes tu menú de favoritos,{" "}
+                <Link to="/home" style={{ color: "#fe164e" }}>
+                  Empiza a buscar tu comida favorita ahora
+                </Link>
+              </h3>
             </section>
           </>
         )}

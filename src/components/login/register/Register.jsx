@@ -43,7 +43,7 @@ const Register = () => {
       const response = addUser(newUser);
       if (response) {
         showNotification("Usuario agregado, inicie sesión por favor");
-        navigate("/exito");
+        navigate("/");
       } else {
         showNotification("Ocurrió un error al procesar la solicitud");
       }

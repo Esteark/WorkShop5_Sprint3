@@ -29,3 +29,7 @@ export const getFavorites = () => {
 export const clearCarrito = () => {
   localStorage.removeItem("car");
 };
+
+export const clearfavorites = () => {
+  localStorage.removeItem("favorites");
+};

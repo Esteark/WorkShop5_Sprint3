@@ -114,6 +114,12 @@
   }
 }
 
+.lblErrorLogin {
+  font-size: 13px;
+  color: $white;
+  font-weight: 600;
+}
+
 @media (min-width: 500px) {
   .form {
     width: 400px;

@@ -19,17 +19,17 @@ const SeccionPago = () => {
 
   //Iniciamos el hook personalido
   const validacion = useValidate();
-  
+
   let slash = false;
-  const handleDate = ({target}) =>{
-    console.log(target.value.split('').length)
-    if(target.value.split('').length == 2 && !slash){
-      target.value = target.value+'/'
-      slash = true
-    }else if(target.value.split('').length == 1){
-      slash = false
+  const handleDate = ({ target }) => {
+    console.log(target.value.split("").length);
+    if (target.value.split("").length == 2 && !slash) {
+      target.value = target.value + "/";
+      slash = true;
+    } else if (target.value.split("").length == 1) {
+      slash = false;
     }
-  }
+  };
   const onSubmitForm = (data) => {
     const newCompra = {
       nomUser: data.nomUser,
@@ -103,6 +103,7 @@ const SeccionPago = () => {
                 message: "La tarjeta de credito debe contener solo 16 dígitos",
               },
             })}
+            maxLength={16}
           />
         </div>
         {errors.credit ? (
@@ -118,7 +119,7 @@ const SeccionPago = () => {
               type="text"
               placeholder="MM/YY"
               className="formPayment__input--date"
-              onInput={(e)=> handleDate(e)}
+              onInput={(e) => handleDate(e)}
               {...register("date", {
                 required: "el campo no debe estar vacío",
                 pattern: {
