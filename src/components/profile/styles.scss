@@ -1,0 +1,75 @@
+@import "../../vars.scss";
+.formPayment__header {
+  align-self: flex-start;
+}
+
+.bgModal {
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.backProfile {
+  padding: 20px;
+  align-self: flex-start;
+}
+.profileImg {
+  border-radius: 300px;
+  border: 1px solid black;
+  width: 200px;
+  justify-self: center;
+  object-fit: cover;
+  height: 200px;
+  margin: 10% 0;
+  border: none;
+}
+.profileInfo {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.profileButtons {
+  padding: 20px;
+  display: flex;
+  gap: 30px;
+  button {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $MainColor;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    transition: 0.5s;
+    &:hover {
+      transition: 0.5s;
+      background-color: $orange;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .bgModal {
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    height: 80vh;
+  }
+  .profileImg {
+    width: 300px;
+    height: 300px;
+    border-radius: 300px;
+    margin: 0;
+  }
+}

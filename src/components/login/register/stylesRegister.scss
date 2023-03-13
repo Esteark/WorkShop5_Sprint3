@@ -1,0 +1,32 @@
+@import "../../../vars.scss";
+.secRegister {
+  display: flex;
+  align-items: center;
+}
+
+.secRegisterForm {
+  height: 55%;
+}
+
+.inputsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lblError {
+  color: $white;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.password {
+  display: flex;
+  flex-direction: column;
+  h4 {
+    margin: 10px 0 5px 0;
+  }
+  .inputPassword2 {
+    margin-bottom: 10px;
+  }
+}

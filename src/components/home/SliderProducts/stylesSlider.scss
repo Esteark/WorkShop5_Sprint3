@@ -1,0 +1,96 @@
+@import "../../../vars.scss";
+
+.SecFigureProducts {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  padding: 20px;
+  padding-bottom: 40px;
+
+  .SecIcons {
+    margin-top: 10px;
+
+    .iconCarrito {
+      width: 30px;
+      height: 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 3px -2px 33px -15px rgba(0, 0, 0, 0.75);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $white;
+      
+      .icon {
+        color: $MainColor;
+      }
+      .favorite{
+        color: rgba(128, 128, 128, 0.355);
+      }
+      .iconProductsFooter {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: $MainColor;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translate(12px, -10px);
+        cursor: pointer;
+        p {
+          color: $white;
+          font-size: 10px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    p {
+      font-weight: 500;
+      font-size: 1rem;
+      color: $white;
+    }
+    button {
+      background-color: $MainColor;
+      padding: 10px 15px;
+      border-radius: 15px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      color: $white;
+      cursor: pointer;
+      transition: 0.5s;
+      &:hover {
+        background-color: $orange;
+        transition: 0.5s;
+      }
+    }
+  }
+}
+
+.visibility{
+  visibility: hidden !important;
+}
+@media (min-width: 887px) {
+  .SecFigureProducts {
+    width: 380px;
+  }
+}
+
+@media (min-width: 992px) {
+  .SecFigureProducts {
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}

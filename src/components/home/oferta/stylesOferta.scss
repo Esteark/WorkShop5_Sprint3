@@ -1,0 +1,51 @@
+@import "../../../vars.scss";
+.SecOferta {
+  width: 200px;
+  height: 85px;
+  background: $MainColor;
+  color: $white;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 10px;
+
+  &__nameCupon {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: left;
+  }
+  &__precio {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.SecOferta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10px;
+  width: 17px;
+  height: 20px;
+  border-top-left-radius: 13px;
+  border-bottom-left-radius: 13px;
+
+  background: $MainColor;
+  box-shadow: 0 22px 0 $MainColor, 0 43px 0 $MainColor, 0 65px 0 $MainColor;
+}
+
+.SecOferta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 190px;
+  width: 20px;
+  height: 20px;
+  border-top-right-radius: 13px;
+  border-bottom-right-radius: 13px;
+
+  background: $MainColor;
+  box-shadow: 0 22px 0 $MainColor, 0 43px 0 $MainColor, 0 65px 0 $MainColor;
+}

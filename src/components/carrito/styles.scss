@@ -1,0 +1,94 @@
+@import "../../vars.scss";
+.carContainer {
+  padding: 30px;
+  background-color: $background;
+}
+.formPayment__header {
+  margin-bottom: 30px;
+}
+
+.carProducts {
+  gap: 10px;
+  display: flex;
+  overflow: scroll;
+  margin: 10px 0;
+  padding: 10px 10px 0 10px;
+  flex-direction: column;
+  align-self: center;
+
+  border-radius: 15px;
+  box-shadow: inset 5px 5px 10px #fdfdfd, inset -5px -5px 10px #fdfdfd;
+}
+
+.carProducts::-webkit-scrollbar {
+  width: 5px;
+  display: block;
+  border-bottom-right-radius: 15px;
+}
+
+.carProducts::-webkit-scrollbar-thumb {
+  background-color: $MainColor;
+  border-radius: 10px;
+}
+
+.carProducts::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.payButton {
+  width: 100%;
+  height: fit-content;
+  padding: 15px;
+  border-style: none;
+  margin: 0 auto 0 auto;
+  border-radius: 5px;
+  background: $MainColor;
+  color: $white;
+  font-weight: 500;
+  align-self: center;
+  cursor: pointer;
+  align-self: center;
+}
+.height {
+  height: 50vh;
+}
+.heightWithForm {
+  height: 200px;
+}
+
+.pizzaNotFound__link {
+  color: $gray;
+  text-decoration-line: underline;
+  text-decoration-color: $MainColor;
+}
+
+@media (min-width: 800px) {
+  .productFormContainer {
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .height {
+      width: 100%;
+    }
+  }
+
+  .payButton {
+    width: 40%;
+  }
+
+  .directionRow {
+    flex-direction: row;
+  }
+
+  .carProducts {
+    width: 80%;
+  }
+
+  .heightWithForm {
+    height: 80vh;
+  }
+  .widthPago {
+    width: 50%;
+  }
+}

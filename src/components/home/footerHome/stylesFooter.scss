@@ -1,0 +1,96 @@
+@import "../../../vars.scss";
+
+.footerSec {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 10;
+  height: 65px;
+
+  &__secA {
+    width: 40%;
+    height: inherit;
+    border-radius: 0 50px 0 0;
+    background-color: $white;
+    div {
+      padding: 0 20px;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+  }
+
+  &__secC {
+    width: 40%;
+    height: inherit;
+    border-radius: 50px 0 0 0;
+    background-color: $white;
+    justify-content: end;
+    div {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      padding: 0 20px;
+    }
+  }
+
+  figure {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    .icon {
+      color: $MainColor;
+      font-size: 25px;
+    }
+    .iconSearch {
+      @extend .icon;
+      color: $gray;
+    }
+    figcaption {
+      h4 {
+        color: $MainColor;
+        font-weight: 400;
+        font-size: 15px;
+      }
+      .textSearch {
+        color: $gray;
+      }
+    }
+  }
+
+  .iconCarrito {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    padding: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 3px -2px 33px -15px rgba(0, 0, 0, 0.75);
+
+    .iconProductsFooter {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: $MainColor;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(15px, -10px);
+      cursor: pointer;
+      p {
+        color: $white;
+        font-size: 10px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}
