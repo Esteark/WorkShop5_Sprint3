@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:4000/";
+const BASE_URL = "https://workshop5back-production.up.railway.app/";
 
 const endpoints = {
   usuarios: `${BASE_URL}usuarios`,
