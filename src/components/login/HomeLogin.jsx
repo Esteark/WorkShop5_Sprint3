@@ -50,7 +50,7 @@ const HomeLogin = () => {
         userLogin = user;
         setInfoUser(user);
       } else if (
-        value.userName === user.email &&
+        value.userName.trim() === user.email &&
         value.password === user.passWord
       ) {
         validateUser = true;
