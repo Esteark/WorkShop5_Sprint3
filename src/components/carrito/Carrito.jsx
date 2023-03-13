@@ -10,8 +10,9 @@ const Carrito = () => {
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
   const [confirmPayment, setconfirmPayment] = useState(false);
-  const { products, inCar, formatterPeso, obtenerProducts } =
-    useContext(AppContext);
+  const { products, inCar, formatterPeso, obtenerProducts } = useContext(AppContext);
+  const [back, setBack] = useState(false)
+  
 
   // const [product, setProduct] = useState([{}]);
 
@@ -22,16 +23,27 @@ const Carrito = () => {
   const handleTotal = (price) => {
     setTotalPrice((totalPrice) => totalPrice + price);
   };
-  const handleFormPayment = () => {
-    setconfirmPayment(!confirmPayment);
-  };
+
+  
 
   useEffect(() => {
-    Number(pago) === 1 ? setconfirmPayment(true) : setconfirmPayment(false);
+    if(Number(pago) === 1){
+      setconfirmPayment(true) 
+      setBack(true)
+    } 
     if (products.length) {
       obtenerProducts();
     }
   }, []);
+
+  
+  const handleFormPayment = () => {
+    if(back){
+     navigate(-1) 
+    }else{
+      setconfirmPayment(!confirmPayment);
+    }
+  };
 
   useEffect(() => {
     console.log(products);

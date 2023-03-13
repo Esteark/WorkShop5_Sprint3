@@ -81,7 +81,6 @@ const DetalleProducto = () => {
         if (newCar.length == 0) {
           newCar = [{}];
         }
-
         setInCar(newCar);
         setcounter((counter) => counter - 1);
         setCarrito(newCar);
@@ -91,8 +90,7 @@ const DetalleProducto = () => {
   const handleCar = (op) => {
     if (op === 0) {
       navigate(`/car/0`);
-    }
-    {
+    }else{
       navigate(`/car/1`);
     }
   };
