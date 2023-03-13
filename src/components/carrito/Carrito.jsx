@@ -18,6 +18,7 @@ const Carrito = () => {
   const handleBack = () => {
     navigate(-1);
   };
+  
   const handleTotal = (price) => {
     setTotalPrice((totalPrice) => totalPrice + price);
   };
@@ -32,6 +33,8 @@ const Carrito = () => {
     }
   }, []);
 
+
+  
   const handleFormPayment = () => {
     if (back) {
       navigate(-1);

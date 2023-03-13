@@ -15,7 +15,7 @@ const ProductCar = ({ name, price, quantity, img, handleTotal, total, id }) => {
     if (quantity) {
       handleTotal(total + price);
     }
-  }, [inCar]);
+  }, []);
 
   const handleDelete = () => {
     if (quantity) {
@@ -32,6 +32,7 @@ const ProductCar = ({ name, price, quantity, img, handleTotal, total, id }) => {
           console.log(newCar);
           setInCar(newCar);
           setCarrito(newCar);
+          window.location.reload();
         }
       });
     } else {
