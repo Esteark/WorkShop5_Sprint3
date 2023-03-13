@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../../router/Routers";
 import ProductCar from "../carrito/ProductCar/ProductCar";
 import "./stylesFavorites.scss";
@@ -44,7 +44,10 @@ const Favorites = () => {
           </section>
         ) : (
           <>
-            <h1>Agregar producto a favoritos</h1>
+            <section className="pizzaNotFound notFavorites">
+              <img src="https://img.freepik.com/free-icon/pizza_318-531095.jpg" alt="" />
+              <h3>Aún no tienes tu menú de favoritos, <Link to='/home'>Empiza a buscar tu comida favorita ahora</Link></h3>
+            </section>
           </>
         )}
       </section>
