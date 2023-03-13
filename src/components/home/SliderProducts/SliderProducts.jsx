@@ -88,7 +88,11 @@ const SliderProducts = ({ img, name, price, id }) => {
           <div>
             <p onClick={clickProduct}>{name}</p>
             <button onClick={clickProduct}>
-              {price ? `${formatterPeso.format(price)} K COP` : 0}
+              {price
+                ? `${formatterPeso.format(
+                    Number(price.toString().split("").slice(0, 2).join(""))
+                  )} K COP`
+                : 0}
             </button>
           </div>
         </figure>

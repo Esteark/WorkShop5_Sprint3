@@ -51,7 +51,11 @@ const Carrito = () => {
           <p>Carrito de compras</p>
         </header>
       ) : (
-        <header onClick={() => handleBack()} className="formPayment__header">
+        <header
+          onClick={() => handleBack()}
+          className="formPayment__header"
+          style={{ cursor: "pointer" }}
+        >
           <span className="material-symbols-outlined arrow">
             arrow_back_ios
           </span>

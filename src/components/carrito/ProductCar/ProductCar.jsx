@@ -72,7 +72,7 @@ const ProductCar = ({ name, price, quantity, img, handleTotal, total, id }) => {
             {name ? name : ""}
           </h2>
           <FaRegTimesCircle
-            style={{ color: "#fe164e" }}
+            style={{ color: "#fe164e", cursor: "pointer" }}
             onClick={handleDelete}
           />
         </div>
