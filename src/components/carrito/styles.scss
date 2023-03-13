@@ -3,6 +3,9 @@
   padding: 30px;
   background-color: $background;
 }
+.formPayment__header {
+  margin-bottom: 30px;
+}
 
 .carProducts {
   gap: 10px;
@@ -84,5 +87,8 @@
 
   .heightWithForm {
     height: 80vh;
+  }
+  .widthPago {
+    width: 50%;
   }
 }

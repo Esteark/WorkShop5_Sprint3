@@ -10,11 +10,9 @@ const Carrito = () => {
   const navigate = useNavigate();
   const [totalPrice, setTotalPrice] = useState(0);
   const [confirmPayment, setconfirmPayment] = useState(false);
-  const { products, inCar, formatterPeso, obtenerProducts } = useContext(AppContext);
-  const [back, setBack] = useState(false)
-  
-
-  // const [product, setProduct] = useState([{}]);
+  const { products, inCar, formatterPeso, obtenerProducts } =
+    useContext(AppContext);
+  const [back, setBack] = useState(false);
 
   const { pago } = useParams();
   const handleBack = () => {
@@ -24,31 +22,23 @@ const Carrito = () => {
     setTotalPrice((totalPrice) => totalPrice + price);
   };
 
-  
-
   useEffect(() => {
-    if(Number(pago) === 1){
-      setconfirmPayment(true) 
-      setBack(true)
-    } 
+    if (Number(pago) === 1) {
+      setconfirmPayment(true);
+      setBack(true);
+    }
     if (products.length) {
       obtenerProducts();
     }
   }, []);
 
-  
   const handleFormPayment = () => {
-    if(back){
-     navigate(-1) 
-    }else{
+    if (back) {
+      navigate(-1);
+    } else {
       setconfirmPayment(!confirmPayment);
     }
   };
-
-  useEffect(() => {
-    console.log(products);
-    console.log(inCar);
-  }, [products]);
 
   return (
     <section className="carContainer">
@@ -56,6 +46,7 @@ const Carrito = () => {
         <header
           className="formPayment__header"
           onClick={() => handleFormPayment()}
+          style={{ cursor: "pointer" }}
         >
           <span className="material-symbols-outlined arrow">
             arrow_back_ios
@@ -84,11 +75,10 @@ const Carrito = () => {
           {products.length ? (
             <section
               className={`carProducts ${
-                confirmPayment ? "heightWithForm" : "height"
+                confirmPayment ? "heightWithForm widthPago" : "height"
               }`}
             >
               {inCar.map((elem, index) => {
-                console.log(products);
                 const product = products.find((item) => item.id == elem.id);
                 const currentPrice = product.price * elem.cantidad;
                 return (
@@ -110,7 +100,7 @@ const Carrito = () => {
           )}
 
           {confirmPayment ? (
-            <SeccionPago />
+            <SeccionPago className="formPago" />
           ) : (
             <button
               className="payButton formPayment__button"
